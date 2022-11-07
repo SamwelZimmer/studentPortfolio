@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { VscEye } from "react-icons/vsc";
 import { VscOpenPreview } from "react-icons/vsc";
 import { AiOutlineDelete } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
+import { BsXLg } from "react-icons/bs";
 
 import { auth, firestore } from "../../lib/firebase";
 import { serverTimestamp, doc, deleteDoc, updateDoc, getFirestore } from 'firebase/firestore';
@@ -70,11 +72,14 @@ function PostManager() {
   
 function PostForm({ defaultValues, postRef, preview, title }) {
     const { register, errors, handleSubmit, formState, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
-  
     const { isValid, isDirty } = formState;
 
+    console.log(formState)
+
     const updatePost = async ({ content, published, description, extLink, type, tags, imgLink }) => {
-      tags = tags.split(",")
+      if (tags.length > 0) {
+        tags = tags.split(",")
+      }
       await updateDoc(postRef, {
         content,
         published,
@@ -87,7 +92,17 @@ function PostForm({ defaultValues, postRef, preview, title }) {
   
       reset({ content, published, description, extLink, type, tags });
   
-      toast.success('Post updated successfully!');
+      toast.success('Post Updated', {
+        style: {
+          border: '1px solid #00040f',
+          padding: '16px',
+          color: '#00040f',
+        },
+        iconTheme: {
+          primary: '#00040f',
+          secondary: '#ffffff',
+        },
+      });
     };
   
     return (
@@ -123,7 +138,7 @@ function PostForm({ defaultValues, postRef, preview, title }) {
                 {...register('content', {
                     required: { value: true, message: 'content is required' },
                     maxLength: { value: 20000, message: 'content is too long' },
-                    minLength: { value: 10, message: 'content is too short' },
+                    minLength: { value: 1, message: 'content is too short' },
                 })}
                 id="message" rows="4" className="block p-2.5 w-full text-sm text-White placeholder:text-opacity-30 bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="Why's this polished peice of shit worth someone's time. Respectfully, of course.">
               </textarea>
@@ -150,7 +165,7 @@ function PostForm({ defaultValues, postRef, preview, title }) {
               </div>
               <select id="projectType" {...register("type", { required: true })} className="block w-full p-2.5 appearance-none text-sm text-white bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite">
                 <option defaultValue>Meh</option>
-                <option  value="Com">Computer Sciencey</option>
+                <option value="Com">Computer Sciencey</option>
                 <option value="Eng">Engineery</option>
                 <option value="Art">Arty Farty</option>
                 <option value="Hum">Humanitiesy</option>
@@ -175,7 +190,6 @@ function PostForm({ defaultValues, postRef, preview, title }) {
 
           </div>
 
-  
             {errors && <p className="text-danger">{errors.content.message}</p>}
             <div className="flex flex-col justify-center items-center">
               <fieldset>
@@ -185,7 +199,7 @@ function PostForm({ defaultValues, postRef, preview, title }) {
                 </div>
               </fieldset>
 
-              <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="submit" className="text-primary cursor-pointer capitalize font-thin bg-blue-gradient rounded-lg w-max p-3" disabled={!isDirty || !isValid}>
+              <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="submit" onClick={console.log("Why no worl")} className="text-primary cursor-pointer capitalize font-thin bg-blue-gradient rounded-lg w-max p-3" disabled={!isDirty || !isValid}>
                 Save Changes
               </motion.button>
 
@@ -200,14 +214,45 @@ function PostForm({ defaultValues, postRef, preview, title }) {
   
 function DeletePostButton({ postRef }) {
     const router = useRouter();
+
+    const handleDelete = async (t) => {
+      toast.dismiss(t.id)
+      await deleteDoc(postRef);
+      router.push('/admin');
+      toast.success('I have abolished this post', {
+        style: {
+          border: '1px solid #00040f',
+          padding: '16px',
+          color: '#00040f',
+        },
+        iconTheme: {
+          primary: '#00040f',
+          secondary: '#ffffff',
+        },
+      });
+    }
   
     const deletePost = async () => {
-      const doIt = confirm('are you sure!');
-      if (doIt) {
-        await deleteDoc(postRef);
-        router.push('/admin');
-        toast('I have abolished this post', { icon: '🗑️' })
-      }
+      toast((t) => (
+          <span className="flex flex-col items-center justify-between gap-6">
+            <p>Are you sure?</p>
+            <div className="flex flex-row justify-between items-center w-full">
+              <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleDelete}>
+                <BsCheckLg size={15} />
+              </motion.button>
+              <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => toast.dismiss(t.id)}>
+                <BsXLg size={15} />
+              </motion.button>
+            </div>
+          </span>
+      ),
+      {  
+        style: {
+          border: '1px solid #00040f',
+          padding: '16px',
+          color: '#00040f',
+        }
+      });  
     };
   
     return (

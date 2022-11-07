@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const LoginRedirect = () => {
+
     return (
 
         
         <main className="bg-black-shifting text-white flex flex-col gap-28 w-full top-0 py-12 px-6 justify-center items-center">
             <div className='absolute w-[50%] h-[50%] right-0 -bottom-20 blue__gradient' />
             <div className='absolute w-[20%] h-[30%] -left-20 top-[50%] pink__gradient' />
-
 
             <div className="flex flex-col text-center text-white gap-6 px-6">
                 <h1 className="text-6xl">Nuh Uh ...</h1>

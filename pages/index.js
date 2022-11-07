@@ -167,7 +167,7 @@ function Scene() {
 export default function Home(props) {
 
   return (
-    <main className="bg-primary py-32 text-white">
+    <main className="bg-black-shifting py-32 text-white">
       <div className='absolute w-[20%] h-[20%] right-[0rem] top-[20%] white__gradient' />
       <div className='absolute w-[30%] h-[20%] -left-20 top-[70%] pink__gradient' />
       <div className='absolute w-[40%] h-[30%] right-0 top-[100%] blue__gradient' />

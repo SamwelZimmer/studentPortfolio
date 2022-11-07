@@ -70,7 +70,7 @@ function CreateNewPost() {
         const uid = auth.currentUser.uid;
         const ref = doc(getFirestore(), 'users', uid, 'posts', slug);
 
-        // Tip: give all fields a default value here
+        // Give all fields a default value here
         const data = {
             title,
             slug,
@@ -108,25 +108,15 @@ function CreateNewPost() {
 
     return (
         <form className='flex flex-col justify-center items-center gap-6 w-full' onSubmit={createPost}>
-            {/* <input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="My Awesome Article!"
-                className=""
-            /> */}
             <div>
                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-dimWhite px-2.5">Project Title</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" id="first_name" className="bg-transparent text-dimWhite text-sm rounded-lg block w-full p-2.5 border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="Lemme get uhh.." required />
             </div>
-            {/* <p>
-                <strong>Slug:</strong> {slug}
-            </p> */}
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="bg-blue-gradient rounded-lg p-[1px]">
                 <motion.button type="submit" disabled={!isValid} className="w-full h-full bg-primary rounded-lg p-3 cursor-pointer">
                     Create
                 </motion.button>
             </motion.div>
-           
         </form>
     )
 }

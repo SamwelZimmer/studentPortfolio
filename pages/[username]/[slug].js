@@ -106,7 +106,7 @@ export default function Post(props) {
             <div className="bg-black-gradient flex flex-col sm:flex-row w-full sm:w-[700px] gap-6 p-6 rounded-lg">
                 {post.imgLink && (
                      <div className='bg-gray-gradient shadow-2xl p-3 flex justify-center items-center border border-primary bg-opacity-50 rounded-lg w-full aspect-[2/1]'>    
-                        <Image alt='link to image' src={post.imgLink} />
+                        <img alt='link to image' src={post.imgLink} />
                     </div>
                 )}
                

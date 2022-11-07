@@ -26,7 +26,17 @@ export default function ImageUploader({ postRef }) {
           imgLink,
         });
         
-        toast.success('Image Uploaded Successfully');
+        toast.success('Image Uploaded Successfully', {
+            style: {
+              border: '1px solid #00040f',
+              padding: '16px',
+              color: '#00040f',
+            },
+            iconTheme: {
+              primary: '#00040f',
+              secondary: '#ffffff',
+            },
+          });
     };
 
     const uploadFile = async (e) => {

@@ -35,7 +35,7 @@ function PostItem({ post, admin = false }) {
                     </h2>
                 </Link>
                 
-                {(post.type == "Art" && post.imgLink) && 
+                {(post.type === "Art" && post.imgLink) && 
                     <div className='bg-gray-gradient flex justify-center items-center shadow-2xl border border-primary bg-opacity-50 rounded-lg w-full p-3'>    
                         <img className='object-cover' src={post.imgLink} />
                     </div> 
