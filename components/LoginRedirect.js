@@ -12,7 +12,7 @@ const LoginRedirect = () => {
 
             <div className="flex flex-col text-center text-white gap-6 px-6">
                 <h1 className="text-6xl">Nuh Uh ...</h1>
-                <h2 className="text-4xl">... where do you think you're going?</h2>
+                <h2 className="text-4xl">... where do you think you{"'"}re going?</h2>
             </div>
             <div className="bg-primary shadow-2xl border z-10 border-dimWhite rounded-lg flex flex-col gap-20 justify-center items-center px-6 py-20 w-max sm:w-[700px]">
                 <div className="flex flex-row gap-6">
@@ -28,7 +28,7 @@ const LoginRedirect = () => {
                     </Link>
                 </div>
                 <div className="flex flex-col gap-6 text-center">
-                        <h3 className="text-2xl opacity-50">Yeah, that's right.</h3>
+                        <h3 className="text-2xl opacity-50">Yeah, that{"'"}s right.</h3>
                         <h4 className="text-2xl opacity-70">{'Nowhere - unless you sign in   :)'}</h4>
                 </div>
             </div>

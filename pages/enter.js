@@ -171,7 +171,7 @@ function UsernameForm() {
                     <div>
                         {formValue.length > 1 ? 
                             (!loading ? 
-                                (isValid ? <p className='text-green-600'>'{formValue}' is available</p> : <p className='text-red-500'>'{formValue}' is unavailable or invalid</p>)
+                                (isValid ? <p className='text-green-600'>{"'"}{formValue}{"'"} is available</p> : <p className='text-red-500'>{"'"}{formValue}{"'"} is unavailable or invalid</p>)
                             :
                             (<p className='opacity-50'>Checking ...</p>)
                             )
@@ -231,7 +231,7 @@ function SignUpForm() {
 
     return (
         <div className='h-full w-full flex flex-col items-center justify-between'>
-            <h3 className='h-full w-2/3 flex pt-6 text-center opacity-60 text-2xl'>Let's get to know each other first, huh</h3>
+            <h3 className='h-full w-2/3 flex pt-6 text-center opacity-60 text-2xl'>Let{"'"}s get to know each other first, huh</h3>
             <form onSubmit={handleSubmit} className='w-full flex flex-col gap-6'>
                 <div className="w-full flex flex-col">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-dimWhite">Email Please* <span className='text-xs opacity-25 pl-12'>*jumping in anticipation*</span></label>
@@ -243,7 +243,7 @@ function SignUpForm() {
                     <input required value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} type="password" id="password" className="block w-full p-2.5 text-sm placeholder:opacity-50 text-white bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="Now, why would I tell you?" />
                 </div>
 
-                <motion.button type='submit' className='bg-blue-gradient text-primary hover:text-white self-center w-1/2 border border-transparent p-3 rounded-xl hover:border-white' whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97}}>Let's go</motion.button>
+                <motion.button type='submit' className='bg-blue-gradient text-primary hover:text-white self-center w-1/2 border border-transparent p-3 rounded-xl hover:border-white' whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97}}>Let{"'"}s go</motion.button>
             </form>
         </div>
     )
@@ -271,13 +271,13 @@ function LoginForm({ toggleForgotPassword }) {
             <h3 className='h-full w-2/3 flex pt-6 justify-center text-center opacity-60 text-2xl'>ohh, yeah ... <br /> I remeber you</h3>
             <form onSubmit={handleSubmit} className='w-full flex flex-col gap-6'>
                 <div className="w-full flex flex-col">
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-dimWhite">Sorry, I don't remember your email</label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-dimWhite">Sorry, I don{"'"}t remember your email</label>
                     <input type="email" id="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} className="block w-full p-2.5 text-sm placeholder:opacity-50 text-white bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="skinny-king@university.com" />
                 </div>
 
                 <div className="w-full flex flex-col ">
                     <div className='flex flex-row w-full justify-between'>
-                        <label htmlFor="password" className="block mb-2 text-sm font-medium text-dimWhite">For this I'll close my eyes</label>
+                        <label htmlFor="password" className="block mb-2 text-sm font-medium text-dimWhite">For this I{"'"}ll close my eyes</label>
                         <motion.button type='button' onClick={toggleForgotPassword} className="block mb-2 text-sm font-medium text-dimWhite hover:underline">Forgor?</motion.button>
                     </div>
                     <input type="password" id="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} className="block w-full p-2.5 text-sm placeholder:opacity-50 text-white bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="Now, why would I tell you?" />
@@ -322,8 +322,8 @@ function ForgotPassword() {
         <div>
             {isSent ? 
             (<div className='flex flex-col pt-12 sm:pt-0 gap-6 sm:gap-12  justify-center items-center text-center'>
-                <p className=''>If you've got an account linked to that email then you'll get a link to reset your password</p>
-                <p className='opacity-70'>Otherwise don't hold your breath</p>
+                <p className=''>If you{"'"}ve got an account linked to that email then you{"'"}ll get a link to reset your password</p>
+                <p className='opacity-70'>Otherwise don{"'"}t hold your breath</p>
                 <p className='opacity-30'>Or do, IDC</p>
             </div> )
             :
@@ -331,7 +331,7 @@ function ForgotPassword() {
                 <p className='opacity-70'>Nice Job!</p>
                 <input type="email" value={resetEmail} onChange={(e) => setResetEmail(e.target.value)} id="forgotPassword" className="block w-full p-2.5 text-sm placeholder:opacity-50 text-white bg-gray-gradient rounded-lg border border-dimBlue outline-dimBlue focus:outline-none focus:border-dimWhite" placeholder="Just give me your email" />
                 <p><span className='opacity-50'>Fine.</span><br /> Just say the word</p>
-                <motion.button type='submit' className='border border-secondary rounded-lg p-3 ' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9}}>"The Word"</motion.button>
+                <motion.button type='submit' className='border border-secondary rounded-lg p-3 ' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9}}>{'"'}The Word{'"'}</motion.button>
             </form>)
             }
 

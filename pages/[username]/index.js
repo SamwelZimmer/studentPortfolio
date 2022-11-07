@@ -7,6 +7,7 @@ import InfoText from "../../components/InfoText";
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
@@ -173,7 +174,7 @@ function EditProfile({ user, toggleEdit }) {
         <form onSubmit={handleSubmit} className="flex flex-col z-30 text-white items-center justify-center w-full gap-20">
             <div className="flex flex-row justify-center items-center gap-4">
                 {user.photoURL && 
-                    <img referrerPolicy='no-referrer' src={user.photoURL} className="card-img-center w-[70px] aspect-square rounded-full" />
+                    <Image alt="profile picture" referrerPolicy='no-referrer' src={user.photoURL} className="card-img-center w-[70px] aspect-square rounded-full" />
                 }
                 <i className="text-xl">@{user.username}</i>
                 <hr className=" my-4 mx-auto w-1/4 h-[1px] bg-secondary opacity-10 rounded border-0 md:my-10" />

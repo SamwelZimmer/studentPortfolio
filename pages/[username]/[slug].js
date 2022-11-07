@@ -2,6 +2,7 @@ import { doc, getDocs, getDoc, collectionGroup, query, limit, getFirestore } fro
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useContext } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
@@ -105,7 +106,7 @@ export default function Post(props) {
             <div className="bg-black-gradient flex flex-col sm:flex-row w-full sm:w-[700px] gap-6 p-6 rounded-lg">
                 {post.imgLink && (
                      <div className='bg-gray-gradient shadow-2xl p-3 flex justify-center items-center border border-primary bg-opacity-50 rounded-lg w-full aspect-[2/1]'>    
-                        <img src={post.imgLink} />
+                        <Image alt='link to image' src={post.imgLink} />
                     </div>
                 )}
                

@@ -215,7 +215,7 @@ export default function Home(props) {
       <section className='flex flex-col gap-28 w-full px-6 justify-center items-center'>
         <div className='flex flex-col w-full lg:w-2/3'>
           <h1 className='text-5xl sm:text-7xl font-poppins text-left w-full sm:px-32'>and this<br/>time...</h1>
-          <h1 className='text-5xl sm:text-7xl font-poppins text-right w-full sm:px-32'>... they'll<br/>come to you</h1>
+          <h1 className='text-5xl sm:text-7xl font-poppins text-right w-full sm:px-32'>... they{"'"}ll<br/>come to you</h1>
         </div>
         
         <div className='w-full sm:w-2/3 flex flex-col justify-center items-center gap-12'>
@@ -240,7 +240,7 @@ export default function Home(props) {
           </div>
 
           <div  className='flex flex-col w-full items-center gap-6'>
-            <p className='w-1/2 text-center opacity-30'>if you're part of a company looking for talented graduates...</p>
+            <p className='w-1/2 text-center opacity-30'>if you{"'"}re part of a company looking for talented graduates...</p>
             <Link href="recruit">
               <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9}} className="p-3 w-[120px] rounded-lg border text-secondary border-dimWhite hover:bg-white hover:border-secondary hover:text-black">
                 Follow Me

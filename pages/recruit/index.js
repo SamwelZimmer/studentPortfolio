@@ -5,7 +5,7 @@ const RecuitPage = () => {
     <main className='bg-primary text-white flex flex-col items-center py-48 gap-20'>
         <div className='flex flex-col w-full ss:w-[600px] px-6'>
             <h2 className='text-left text-6xl'>
-                we're<br /> working <br /> on it
+                we{"'"}re<br /> working <br /> on it
             </h2>
             <h2 className='text-right text-6xl opacity-50'>
                 hold on<br /> tight

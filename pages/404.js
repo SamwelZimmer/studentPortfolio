@@ -9,12 +9,12 @@ export default function Custom404() {
 
       <div className='flex flex-col gap-6'>
         <h1 className='text-5xl'>Yeah ...</h1>
-        <h3 className='text-3xl opacity-70'>... What you’re looking for aint here.</h3>
+        <h3 className='text-3xl opacity-70'>... What you{"'"}re looking for aint here.</h3>
         <h4 className='text-xl opacity-30'>My bad.</h4>
       </div>
     
       <div className='flex flex-col gap-3 justify-center items-center'>
-        <p className='text-xl'>Come on, I'll walk you home</p>
+        <p className='text-xl'>Come on, I{"'"}ll walk you home</p>
         <Link href="/feed">
           <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='border border-white hover:text-secondary rounded-lg p-3'><BiHomeAlt /></motion.button>
         </Link>
