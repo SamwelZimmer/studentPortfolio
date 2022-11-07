@@ -19,20 +19,25 @@ const Navbar = () => {
     return (
         <nav className="absolute w-full z-50 top-0 left-0 px-8 md:px-32 py-4">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
-                <div className='order-1'>
+                <div className='order-1 px-3 md:px-0'>
                     <Link href="/" className='flex items-center'>
                         <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <span className="self-center text-xl text-secondary hover:text-white font-poppins font-semibold whitespace-nowrap">Student</span>
-                            <span className="self-center text-xl text-white hover:text-secondary font-poppins font-semibold whitespace-nowrap">Portfolio</span>
+                            <span className="md:hidden self-center text-xl text-secondary hover:text-white font-poppins font-semibold whitespace-nowrap">S</span>
+                            <span className="md:hidden self-center text-xl text-white hover:text-secondary font-poppins font-semibold whitespace-nowrap">P</span>
+                            <div className='flex flex-row'>
+                                <span className="hidden md:flex self-center text-xl text-secondary hover:text-white font-poppins font-semibold whitespace-nowrap">Student</span>
+                                <span className="hidden md:flex self-center text-xl text-white hover:text-secondary font-poppins font-semibold whitespace-nowrap">Portfolio</span>
+                            </div>
+
                         </motion.button>
                     </Link>
                 </div>
             
                 
                 { !username && 
-                    <div className="flex order-2 items-center w-32 justify-end">
+                    <div className="flex order-2 items-center w-max md:w-32 justify-end">
                         <Link href="/enter">
-                            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} type="button" className="hidden md:block text-white border border-secondary font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 hover:border-white">Get started</motion.button>
+                            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} type="button" className="text-white flex flex-row border border-secondary font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 hover:border-white">Get started</motion.button>
                         </Link>
                         <button onClick={toggleDropdown} data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden" aria-controls="navbar-cta" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
