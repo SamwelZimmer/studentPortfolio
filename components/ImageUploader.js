@@ -36,7 +36,7 @@ export default function ImageUploader({ postRef }) {
               primary: '#00040f',
               secondary: '#ffffff',
             },
-          });
+        });
     };
 
     const uploadFile = async (e) => {

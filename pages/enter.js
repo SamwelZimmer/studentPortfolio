@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { AiOutlineGoogle } from "react-icons/ai";
-import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import debounce from 'lodash.debounce';
 import { doc, getFirestore, writeBatch, getDoc } from 'firebase/firestore';
 import { motion } from 'framer-motion';
@@ -9,8 +9,6 @@ import { useRouter } from 'next/router';
 
 import { auth, googleAuthProvider } from "../lib/firebase";
 import { UserContext } from '../lib/context';
-import Footer from "../components/Footer";
-
 
 export default function Enter({ }) {
     const router = useRouter()
@@ -86,7 +84,7 @@ export default function Enter({ }) {
 // };
 
 const signInWithGoogle = async () => {
-    await signInWithPopup(auth, googleAuthProvider)
+    await signInWithRedirect(auth, googleAuthProvider)
 };
 
 
@@ -257,8 +255,17 @@ function LoginForm({ toggleForgotPassword }) {
         try {
             await signInWithEmailAndPassword(auth, email, password);
         } catch (err) {
-            console.log(err);
-            toast.error(`Login Failed: ${err.message}`);
+            toast.error(`Login Failed: ${err.message}`, {
+                style: {
+                  border: '1px solid #00040f',
+                  padding: '16px',
+                  color: '#00040f',
+                },
+                iconTheme: {
+                  primary: '#00040f',
+                  secondary: '#ffffff',
+                },
+            });
         }    
     };
 
@@ -353,9 +360,28 @@ function GeneratePPCode() {
 const sendPasswordReset = async (email) => {
     try {
         sendPasswordResetEmail(auth, email);
-        toast.success("Your email just got graced with a link to reset your password! \nTry to remember it this time.")
+        toast.success('Your email just got graced with a link to reset your password! \nTry to remember it this time.', {
+            style: {
+              border: '1px solid #00040f',
+              padding: '16px',
+              color: '#00040f',
+            },
+            iconTheme: {
+              primary: '#00040f',
+              secondary: '#ffffff',
+            },
+        });
     } catch (err) {
-        console.log(err);
-        toast.error(err.message);
+        toast.error(`Error: ${err.message}`, {
+            style: {
+              border: '1px solid #00040f',
+              padding: '16px',
+              color: '#00040f',
+            },
+            iconTheme: {
+              primary: '#00040f',
+              secondary: '#ffffff',
+            },
+        });       
     }
 };

@@ -67,7 +67,7 @@ export default function UserProfilePage({ user, posts }) {
         <main className="py-32 bg-black-shifting flex flex-col items-center justify-center">
             <div className='absolute z-0 w-[40%] h-[20%] top-0 left-0 pink__gradient' />
             {/* <div className='absolute z-10 w-[80%] h-[80%] bottom-0 rounded-full white__gradient' /> */}
-            <div className='absolute z-20 w-[50%] h-[50%] right-0 bottom-0 blue__gradient' />
+            <div className='absolute z-20 w-[20%] h-[50%] right-0 bottom-0 blue__gradient' />
         
             {isEdit ? <EditProfile toggleEdit={toggleEdit} user={user} /> : (
                 <>
@@ -166,7 +166,17 @@ function EditProfile({ user, toggleEdit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         updateUserData();
-        toast.success("Profile Updated")
+        toast.success('Profile Updated', {
+            style: {
+              border: '1px solid #00040f',
+              padding: '16px',
+              color: '#00040f',
+            },
+            iconTheme: {
+              primary: '#00040f',
+              secondary: '#ffffff',
+            },
+        });
         toggleEdit();
     };
 
